@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Object</title>
+</head>
+<body>
+    <h1>JavaScript Objects</h1>
+    <h2>Nested JavaScript Objects and Arrays.</h2>
+    <p id="demo"></p> 
+
+    <script>
+        let a = "";
+        const myObj = {
+            name: "Hemraj Suthar",
+            age: 25,
+            cars: [{name:"Ford", models:["Fiesta", "Focus", "Mustang"]},
+                   {name:"BMW", models:["320", "X3", "X5"]},
+                   {name:"Fiat", models:["500", "Panda"]}]
+        }
+
+        for (const key in myObj.cars) {
+            a += "<h3>" + myObj.cars[key].name + "</h3>" + "<br>";
+
+            for (let b in myObj.cars[key].models) {
+                a += myObj.cars[key].models[b] + "<br>";                 
+            };   
+        };
+        
+        document.querySelector("#demo").innerHTML = a;
+    </script>
+</body>
+</html>
