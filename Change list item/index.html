@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change List item</title>
+</head>
+<body>
+    <h1>Without add Event Listener</h1>
+    <ol id="list">
+        <li>Honda</li>
+        <li>Hero</li>
+        <li>Yamahaa</li>
+        <li>Bajaj</li>
+    </ol>
+    <button onclick="changeList()">Change List</button>
+
+    <script>
+        const list = document.getElementById("list");
+        // console.log(list);
+
+        function changeList() {
+            // console.log(changeList);
+            list.innerHTML = "<li>Apple</li>" +
+                             "<li>Grapes</li>" +
+                             "<li>Orange</li>" +
+                            "<li>Pineapple</li>" ;
+        }
+    </script>
+
+    <h1>With add Event Listener</h1>
+    <ol id="list2">
+        <li>Honda</li>
+        <li>Hero</li>
+        <li>Yamahaa</li>
+        <li>Bajaj</li>
+    </ol>
+    <button id="btn">Change List</button>
+
+    <script>
+        const list2 = document.querySelector("#list2");
+        // console.log(list2);
+        const btn = document.querySelector("#btn");
+        // console.log(btn);
+        btn.addEventListener("click", function (){
+            list2.innerHTML = "<li>Apple</li>" +
+                             "<li>Grapes</li>" +
+                             "<li>Orange</li>" +
+                            "<li>Pineapple</li>" ;
+        })
+    </script>
+</body>
+</html>
