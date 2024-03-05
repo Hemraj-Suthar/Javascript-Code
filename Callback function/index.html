@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        // Solution with using callback function but it lead to coding confusing
+        console.log("First");
+
+        function secondFun(callback) {
+            setTimeout(function() {
+                console.log("Second");
+                console.log("Running ...");
+                callback();
+            }, 2000);
+        }
+
+        function thirdFun() {
+            console.log("Third");
+        }
+    
+        secondFun(thirdFun);
+    </script> -->
+
+    <script>
+        // Solution with using callback function but it lead to coding confusing
+        console.log("First");
+
+        function secondFun(callback) {
+            setTimeout(function() {
+                console.log("Second");
+                callback(fourthFun);
+            }, 1000);
+        }
+
+        function thirdFun(callback) {
+            setTimeout(() => {
+                console.log("Third");
+                callback();
+            }, 1000);
+        }
+
+        function fourthFun() {
+            console.log("Fourth");
+        }
+    
+        secondFun(thirdFun);
+    </script>
+</body>
+</html>
