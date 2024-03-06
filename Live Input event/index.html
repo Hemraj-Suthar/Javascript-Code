@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input event</title>
+    <style>
+        #result {color: blue;}
+    </style>
+</head>
+<body>
+    <h1>HTML DOM Events</h1>
+    <h1>The input Event</h1>
+    <P>Write something: <input type="text" name="name" id="name" oninput="myFun()"></P>
+    <h3>You wrote: <span id="result"></span></h3>
+    <script>
+        function myFun(){
+            let text = document.querySelector("#name").value;
+            document.querySelector("#result").innerHTML = text;
+        };
+    </script>
+</body>
+</html>
