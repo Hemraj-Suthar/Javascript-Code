@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var items = {
+            image: 'path/to/image.jpg',
+            title: 'Awesome Gadget',
+            price: 99.99,
+            description: 'A description of the awesome gadget.',
+            stock: 100
+        };
+
+        var {stock, description, title, price} = items;
+
+        console.log(stock);
+        console.log(price);
+        console.log(description);
+    </script>
+</body>
+</html>
