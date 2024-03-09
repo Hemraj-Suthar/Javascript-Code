@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const name = ["Ram", "Ramesh", "Ram", "Karan", "Karan", "Ramesh"];
+        console.log(name);
+
+        const uniquename = [...new Set(name)];
+        console.log(uniquename);
+    </script>
+
+    <!-- <script>
+        const number = new Set([]);
+        console.log(number);
+
+        number.add(10);
+        number.add(20);
+        number.add(30);
+        number.add(40);
+        number.add(10);
+        number.add(20);
+        number.add("Ram");
+        number.add({name: "Ram"});
+
+        console.log(number);
+    </script> -->
+
+    <!-- <script>
+        const mySet = new Set([10, 20, 30, 40, 50]);
+
+        mySet.forEach(function(value) {
+            console.log(value );
+            
+        });
+        console.log("End of loop");
+
+        for (const value of mySet) {
+            console.log(value);
+        }
+    </script> -->
+
+    <!-- <script>
+        const mySet = new Set([10, 20, 30, 40, 50]);
+
+        console.log(mySet.has(20)); 
+        console.log(mySet.has(60));
+
+        mySet.delete(20);
+        console.log(mySet.has(20));
+
+        mySet.clear();
+        console.log(mySet);
+    </script> -->
+</body>
+</html>
