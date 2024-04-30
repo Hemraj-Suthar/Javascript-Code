@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Before Example</title>
+</head>
+<body>
+    <div id="parent">
+        <p>This is the parent element.</p>
+        <p>This is another paragraph.</p>
+    </div>
+    <script>
+        // Create a new paragraph element
+        var newParagraph = document.createElement("p");
+        newParagraph.textContent = "This paragraph is inserted before the second paragraph.";
+
+        // Find the parent element
+        var parentElement = document.getElementById("parent");
+
+        // Find the reference element (the second paragraph)
+        var referenceElement = parentElement.children[1];
+
+        // Insert the new paragraph before the reference element
+        parentElement.insertBefore(newParagraph, referenceElement);
+    </script>
+</body>
+</html>

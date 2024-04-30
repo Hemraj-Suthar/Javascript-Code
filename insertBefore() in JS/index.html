@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Multiple Before Example</title>
+</head>
+<body>
+    <div id="parent">
+        <p>This is the parent element.</p>
+        <p>This is another paragraph.</p>
+    </div>
+    <script>
+        // Create an array of new paragraph elements
+        var newParagraphs = [
+            "This is the first new paragraph.",
+            "This is the second new paragraph."
+        ];
+
+        // Find the parent element
+        var parentElement = document.getElementById("parent");
+
+        // Find the reference element (the second paragraph)
+        var referenceElement = parentElement.children[1];
+
+        // Insert each new paragraph before the reference element
+        newParagraphs.forEach(function(content) {
+            var newParagraph = document.createElement("p");
+            newParagraph.textContent = content;
+            parentElement.insertBefore(newParagraph, referenceElement);
+        });
+    </script>
+</body>
+</html>
