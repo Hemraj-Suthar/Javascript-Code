@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ct-accordion {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .ct-accordion__header {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+
+        .ct-accordion__header:hover {
+            background-color: #f1f1f1;
+        }
+
+        .ct-accordion__content {
+            display: none;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+
+        .ct-accordion__header .icon {
+            display: inline-block;
+            font-size: 20px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .plus-icon::before {
+            content: "+";
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .minus-icon::before {
+            content: "-";
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct-accordion">
+        <div class="ct-accordion__header" onclick="toggleAccordion(this)">
+            Accordion Title 1
+            <span class="icon plus-icon"></span>
+        </div>
+        <div class="ct-accordion__content">
+            <p>Content for Accordion 1 goes here...</p>
+        </div>
+    </div>
+
+    <div class="ct-accordion">
+        <div class="ct-accordion__header" onclick="toggleAccordion(this)">
+            Accordion Title 2
+            <span class="icon plus-icon"></span>
+        </div>
+        <div class="ct-accordion__content">
+            <p>Content for Accordion 2 goes here...</p>
+        </div>
+    </div>
+    <script>
+        function toggleAccordion(headerElement) {
+            const allHeaders = document.querySelectorAll('.ct-accordion__header');
+            var content = headerElement.nextElementSibling;
+
+            // Iterate over all headers to close any open accordion except the one being clicked
+            allHeaders.forEach(function(otherHeader) {
+                var otherContent = otherHeader.nextElementSibling;
+                var icon = otherHeader.querySelector('.icon');
+                if (otherHeader !== headerElement && otherContent.style.display === 'block') {
+                otherContent.style.display = 'none';
+                icon.classList.remove('minus-icon');
+                icon.classList.add('plus-icon');
+                }
+            });
+
+            // Toggle the clicked accordion
+            var icon = headerElement.querySelector('.icon');
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.classList.remove('minus-icon');
+                icon.classList.add('plus-icon');
+            } else {
+                content.style.display = 'block';
+                icon.classList.remove('plus-icon');
+                icon.classList.add('minus-icon');
+            }
+        }
+    </script>
+</body>
+</html>
+
+<img src="" alt="">
