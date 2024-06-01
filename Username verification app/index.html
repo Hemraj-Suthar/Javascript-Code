@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Enter user name:<input type="text" id="input-text"></h2>
+    <button onclick="verify()">Verify</button>
+    <script>
+        const users = ["ram", "ramesh", "mohit", "ankit"];
+        
+        var inputValue = document.getElementById("input-text");
+        
+        function verify() {
+            let flag = false;
+            for (const value of users) {
+                if (inputValue.value == value) {
+                    flag = true;
+                }
+            }
+
+            if (flag) {
+                alert("User sucessfully verified!")
+            } else {
+                alert("Please Enter valid user name!")
+            }
+
+            inputValue.value = '';
+        }
+    </script>
+</body>
+</html> 
