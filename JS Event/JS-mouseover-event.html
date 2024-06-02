@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="demo">Mouseover me to change content of my</h2>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        x.addEventListener("mouseover", function(){
+            x.innerHTML = "Hello friends!";
+            x.style.color = "blue";
+            x.style.fontSize = "40px";
+            x.style.padding = "30px";
+        });
+    </script>
+    
+</body>
+</html>
