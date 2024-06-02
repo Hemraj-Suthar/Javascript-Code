@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p = fetch('https://api.punkapi.com/v2/beers');
+
+        p.then((Response) => {
+            console.log(Response.status);
+            console.log(Response.ok);
+            return Response.json();
+        }).then((value) => {
+            console.log(value);
+        })
+    </script>
+
+    <!-- <script>
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response => response.json()) // Parses the response as JSON
+        .then(data => console.log(data)) // Processes the data
+        .catch(error => console.error('Failed to fetch:', error)); // Catches and logs any errors
+    </script> -->
+
+    <!-- <script>
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: 'foo',
+                body: 'bar',
+                userId: 1,
+            }),
+
+        })
+        .then(response => response)
+        // .then(response => response.text())
+        // .then(response => response.json())
+        // .then(text => {
+        //     const data = JSON.parse(text);
+        //     console.log(data);
+        // })
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error))
+    </script> -->
+
+</body>
+</html>
