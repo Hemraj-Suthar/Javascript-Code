@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="number">Enter number:</label>
+    <input type="number" name="number" id="number">
+    <button onclick="getTable()">Submit</button>
+    <button onclick="stop()">Stop</button>
+    <div id="result"></div>
+
+    <script>
+        let table;
+
+        function getTable() {
+            const input = document.querySelector("#number");
+            let text = "";
+            let i = 1;
+            table = setInterval(() => {
+                text += input.value + " * " + i + " = " + input.value * i + "<br>";
+                if (i === 10) {
+                    clearInterval(table);
+                }
+                i++;
+                document.querySelector('#result').innerHTML = text;
+            }, 1000);
+        }
+
+        function stop() {
+            clearInterval(table);
+        }
+    </script>
+</body>
+</html>

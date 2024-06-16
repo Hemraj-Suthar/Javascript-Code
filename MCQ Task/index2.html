@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Choice Question</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .quiz-container {
+      max-width: 600px;
+      margin: 150px auto;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .option {
+      margin-bottom: 5px;
+    }
+
+    .submit-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="question">What is the capital of France?</div>
+        <ul class="options">
+            <li class="option"><input type="radio" name="q1" value="Paris"> Paris</li>
+            <li class="option"><input type="radio" name="q1" value="London"> London</li>
+            <li class="option"><input type="radio" name="q1" value="Berlin"> Berlin</li>
+            <li class="option"><input type="radio" name="q1" value="Madrid"> Madrid</li>
+        </ul>
+        <button class="submit-btn" onclick="submitAnswer()">Submit</button>
+    </div>
+
+
+    <script>
+    function submitAnswer() {
+        var selectedOption = document.querySelector('input[name="q1"]:checked');
+        // console.log(selectedOption);
+        if (selectedOption) {
+        var answer = selectedOption.value;
+        alert("Selected Answer: " + answer);
+        } else {
+        alert("Please select an option.");
+        }
+    }
+    </script>
+</body>
+</html>
