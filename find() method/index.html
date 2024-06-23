@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const users = [
+            { id: 1, name: 'Alice', isAdmin: false },
+            { id: 2, name: 'Bob', isAdmin: true },
+            { id: 3, name: 'Charlie', isAdmin: false },
+            { id: 4, name: 'Ramesh', isAdmin: false },
+            { id: 5, name: 'Ashish', isAdmin: false }
+        ];
+
+        const adminUser = users.find(user => user.isAdmin);
+        console.log(adminUser);
+
+        const rameshData = users.find(user => user.name ==='Ramesh');
+        console.log(rameshData);
+    </script>
+</body>
+</html>
