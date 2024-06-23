@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <body>
+    <script>
+        // Synchronous token generation
+        function generateSyncToken() {
+            return "SyncToken456";
+        }
+
+        console.log("\nSynchronous token generation:");
+        const syncToken = generateSyncToken();
+        console.log("Synchronous token:", syncToken);
+
+        // Asynchronous token generation
+        function generateAsyncToken(callback) {
+            setTimeout(() => {
+                const token = "AsyncToken123";
+                callback(null, token);
+            }, 4000);
+        }
+        debugger;
+        console.log("Asynchronous token generation started...");
+        generateAsyncToken((err, token) => {
+            if (err) {
+                console.error("Error generating token:", err);
+                return;
+            }
+            console.log("Asynchronous token:", token);
+        });
+
+    </script> -->
+
+    <script>
+        // Synchronous data fetching
+        function fetchDataSync() {
+            return { message: "Sync data fetched" };
+        }
+
+        console.log("\nSynchronous data fetching:");
+        const syncData = fetchDataSync();
+        console.log("Synchronous data:", syncData);
+
+        // Asynchronous data fetching
+        function fetchDataAsync(callback) {
+            setTimeout(() => {
+                const data = { message: "Async data fetched" };
+                callback(null, data);
+            }, 1500);
+        }
+
+        console.log("Asynchronous data fetching started...");
+        fetchDataAsync((err, data) => {
+            if (err) {
+                console.error("Error fetching data:", err);
+                return;
+            }
+            console.log("Asynchronous data:", data);
+        });
+    </script>
+</body>
+</html>
