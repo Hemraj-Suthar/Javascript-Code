@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Without Constructor
+        const person1 = {
+            name: 'Ashok',
+            age: 25,
+            displayInfo: function() {
+                console.log(`Name: ${person1.name}, Age: ${person1.age}`);
+            }
+        }
+
+        const person2 = {
+            name: 'Ramesh',
+            age: 20,
+            displayInfo: function() {
+                console.log(`Name: ${person2.name}, Age: ${person2.age}`);
+            }
+        }
+
+        person1.displayInfo();
+        person2.displayInfo();
+
+
+
+        // With Constructor
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.displayInfo = function() {
+                console.log(`Name: ${this.name}, Age: ${this.age}`);
+            }
+        }
+        
+        const person3 = new Person('Ashok', 25);
+        const person4 = new Person('Ramesh', 30);
+
+        person3.displayInfo();
+        person4.displayInfo();
+    </script>
+</body>
+</html>
