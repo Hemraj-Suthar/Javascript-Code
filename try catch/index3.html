@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Try to enter number less than 20</p>
+    <label for="age">Age: <input type="text" id="age"></label>
+    
+    <button id="submit" onclick="myFun()">Submit</button>
+    <div id="result"></div>
+
+    <script>
+        function myFun() {
+            const age = parseInt(document.querySelector("#age").value);
+            console.log(age);
+            try {
+                if (age < 20) {
+                    throw "age is not valid"
+                } else {
+                    document.querySelector("#result").innerHTML = "age is valid";
+                }
+            } catch (error) {
+                document.querySelector("#result").innerHTML = error;
+            }
+        };
+    </script>
+</body>
+</html>

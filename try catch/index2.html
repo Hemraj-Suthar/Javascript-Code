@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        try {
+        // Attempting to execute some code that may throw an error
+        let result = 10 / 0; // This will throw a division by zero error
+        console.log("Result:", result); // This line will not be executed if an error occurs
+        } catch (error) {
+        // Catching any error that occurs within the try block
+        console.error("An error occurred:", error.message); // Output the error message
+        }
+    </script> -->
+
+    <script>
+        // let jsonString = '{"name": "John", "age": 30}';
+        let jsonString = {name: "John", age: 30};
+        try {
+        let jsonObject = JSON.parse(jsonString); // Parsing JSON string
+        console.log("Parsed JSON object:", jsonObject); // Output parsed object
+        } catch (error) {
+        console.error("Error parsing JSON:", error.message); // Output error message if parsing fails
+        }
+    </script>
+</body>
+</html>

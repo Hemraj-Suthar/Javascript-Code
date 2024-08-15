@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab button</title>
+    <style>
+        .tab {
+            padding: 10px 20px;
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        .tab-content {
+            display: none;
+        }
+        .active-tab {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab" onclick="showTab('tab1')">Tab1</div>
+        <div class="tab" onclick="showTab('tab2')">Tab2</div>
+        <div class="tab" onclick="showTab('tab3')">Tab3</div>
+        <div class="tab" onclick="showTab('tab4')">Tab4</div>
+    </div>
+    <div class="tab-content active-tab" id="tab1">
+        <h2>Tab1</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Rem, consectetur. Veniam sequi nostrum molestiae tempore.
+        </p>
+    </div>
+    <div class="tab-content" id="tab2">
+        <h2>Tab2</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Rem, consectetur. Veniam sequi nostrum molestiae tempore.
+        </p>
+    </div>
+    <div class="tab-content" id="tab3">
+        <h2>Tab3</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Rem, consectetur. Veniam sequi nostrum molestiae tempore.
+        </p>
+    </div>
+    <div class="tab-content" id="tab4">
+        <h2>Tab4</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Rem, consectetur. Veniam sequi nostrum molestiae tempore.
+        </p>
+    </div>
+    
+
+    <script>
+        function showTab(a){
+            var tab_content = document.querySelectorAll(".tab-content");
+            for (let i = 0; i < tab_content.length; i++) {
+                const element = tab_content[i].classList.remove('active-tab');
+            }
+            
+            document.getElementById(a).classList.add('active-tab');
+        };;
+           
+    </script>
+</body>
+</html>

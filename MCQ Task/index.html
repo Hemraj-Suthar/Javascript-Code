@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            max-width: 700px;
+            margin: 0 auto 10px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2{
+            margin: 10px 0 5px;
+            font-size: 20px;
+        }
+        .box{
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-column-gap: 50px;
+            justify-content: flex-start;
+        }
+        p{
+            font-size: 17px;
+            margin: 8px;
+            cursor: pointer;
+        }
+        input{
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        label{
+            cursor: pointer;
+        }
+        button{
+            color: blue;
+            background-color: rgb(120, 207, 93);
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            margin: 20px auto;
+            display: block;
+        }
+        #result, #result1{
+            font-size: 25px;
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>1. Which is the capital of India.</h2>
+        <div class="box">
+            <p><input type="radio" id="patna" name="que1" value="Patna"><label for="patna">Patna</label></p>
+            <p><input type="radio" id="delhi" name="que1" value="Delhi"><label for="delhi">Delhi</label></p>
+            <p><input type="radio" id="mumbai" name="que1" value="Mumbai"><label for="mumbai">Mumbai</label></p>
+            <p><input type="radio" id="kolkata" name="que1" value="Kolkata"><label for="kolkata">Kolkata</label></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>2. Which is the capital of Rajasthan.</h2>
+        <div class="box">
+            <p><input type="radio" id="jaipur" name="que2" value="Jaipur"><label for="jaipur">Jaipur</label></p>
+            <p><input type="radio" id="Udaipur" name="que2" value="Udaipur"><label for="Udaipur">Udaipur</label></p>
+            <p><input type="radio" id="Ajmer" name="que2" value="Ajmer"><label for="Ajmer">Ajmer</label></p>
+            <p><input type="radio" id="Pali" name="que2" value="Pali"><label for="Pali">Pali</label></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>3. What is stand for CSS.</h2>
+        <div class="box">
+            <p><input type="radio" id="Common style sheet" name="que3" value="Common style sheet"><label for="Common style sheet">Common style sheet</label></p>
+            <p><input type="radio" id="Cascading spread sheet" name="que3" value="Cascading spread sheet"><label for="Cascading spread sheet">Cascading spread sheet</label></p>
+            <p><input type="radio" id="Casual style sheet" name="que3" value="Casual style sheet"><label for="Casual style sheet">Casual style sheet</label></p>
+            <p><input type="radio" id="Cascading style sheet" name="que3" value="Cascading style sheet"><label for="Cascading style sheet">Cascading style sheet</label></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>4. How many type of heading in HTML</h2>
+        <div class="box">
+            <p><input type="radio" id="a4" name="que4" value="4"><label for="a4">4</label></p>
+            <p><input type="radio" id="a10" name="que4" value="10"><label for="a10">10</label></p>
+            <p><input type="radio" id="a6" name="que4" value="6"><label for="a6">6</label></p>
+            <p><input type="radio" id="a3" name="que4" value="3"><label for="a3">3</label></p>
+        </div>
+    </div>
+
+    <button id="button">Submit</button>
+
+    <p id="result"></p>
+
+    <script>
+        var button = document.getElementById("button");
+        button.addEventListener("click", getAns);
+
+        function getAns(){
+            var value = document.getElementsByTagName("input");
+            // console.log(typeof(value));
+            var result = "";
+
+            var count = 1;
+
+            for (var i = 0; i < value.length; i++) {
+                if (value[i].checked) {
+                    result += count++ +  ". " + value[i].value + "</br>";
+                }                                       
+                document.getElementById("result").innerHTML = result;              
+            };
+        };
+    </script>
+</body>
+</html>

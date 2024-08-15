@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math table</title>
+    <style>
+        th, td {
+            border: 1px solid #000;
+            padding: 5px 20px;
+        }
+        table {border-collapse: collapse; margin-top: 50px;}
+    </style>
+</head>
+<body>
+    Enter number: <input type="number" id="num">
+    <button id="btn">Get Table</button>
+
+    <div id="result"></div>
+
+
+    <!-- First method -->
+    <!-- <script>
+        var btn = document.querySelector("#btn");
+        // console.log(btn);
+        btn.addEventListener("click", function() {
+            let num = document.querySelector("#num").value;
+            var text = "<table>";
+            for (let i = 1; i <= 10; i++) {
+                // text += num + " x " + i + " = " + num * i + "<br>";
+                
+                text += `<tr><td>${num}</td> <td>${i}</td> <td>${num * i}</td></tr>`;               
+            };
+            
+            text += "</table>";
+            document.querySelector("#result").innerHTML = text;
+        });
+    </script> -->
+
+
+    <!-- Second method -->
+    <script>
+        var btn = document.querySelector("#btn");
+        btn.addEventListener("click", function() {
+            let num = document.querySelector("#num").value;
+            var text = "<table>";
+            let i = 1;
+            while (i <= 10) {
+                // text += num + " x " + i + " = " + num * i + "<br>";
+                text += `<tr><td>${num}</td> <td>${i}</td> <td>${num * i}</td></tr>`;
+                i++;               
+            }; 
+            text += "</table>";
+            document.querySelector("#result").innerHTML = text;
+        });
+    </script>
+</body>
+</html>

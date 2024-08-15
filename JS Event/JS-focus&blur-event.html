@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="text" id="text">write your message</textarea>
+
+    <script>
+        var text = document.getElementById("text");
+
+        text.addEventListener("focus", function(){
+            text.style.backgroundColor = "blue";
+        });
+        
+        text.addEventListener("blur", function(){
+            text.style.backgroundColor = "orange";
+        });
+    </script>
+</body>
+</html>

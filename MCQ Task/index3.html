@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Choice Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .options {
+      list-style-type: none;
+      padding: 0;
+    }
+    .option {
+      margin-bottom: 5px;
+    }
+    .submit-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="question">1. What is the capital of France?</div>
+        <ul class="options">
+            <li class="option"><input type="radio" name="q1" value="paris"> Paris</li>
+            <li class="option"><input type="radio" name="q1" value="london"> London</li>
+            <li class="option"><input type="radio" name="q1" value="berlin"> Berlin</li>
+            <li class="option"><input type="radio" name="q1" value="madrid"> Madrid</li>
+        </ul>
+
+        <div class="question">2. What is the largest mammal?</div>
+        <ul class="options">
+            <li class="option"><input type="radio" name="q2" value="elephant"> Elephant</li>
+            <li class="option"><input type="radio" name="q2" value="bluewhale"> Blue Whale</li>
+            <li class="option"><input type="radio" name="q2" value="giraffe"> Giraffe</li>
+            <li class="option"><input type="radio" name="q2" value="rhino"> Rhino</li>
+        </ul>
+
+        <div class="question">3. What is the capital of Japan?</div>
+        <ul class="options">
+            <li class="option"><input type="radio" name="q3" value="tokyo"> Tokyo</li>
+            <li class="option"><input type="radio" name="q3" value="seoul"> Seoul</li>
+            <li class="option"><input type="radio" name="q3" value="beijing"> Beijing</li>
+            <li class="option"><input type="radio" name="q3" value="hanoi"> Hanoi</li>
+        </ul>
+
+        <div class="question">4. Which planet is known as the Red Planet?</div>
+        <ul class="options">
+            <li class="option"><input type="radio" name="q4" value="earth"> Earth</li>
+            <li class="option"><input type="radio" name="q4" value="mars"> Mars</li>
+            <li class="option"><input type="radio" name="q4" value="venus"> Venus</li>
+            <li class="option"><input type="radio" name="q4" value="jupiter"> Jupiter</li>
+        </ul>
+
+        <div class="question">5. What is the capital of Australia?</div>
+        <ul class="options">
+            <li class="option"><input type="radio" name="q5" value="sydney"> Sydney</li>
+            <li class="option"><input type="radio" name="q5" value="melbourne"> Melbourne</li>
+            <li class="option"><input type="radio" name="q5" value="brisbane"> Brisbane</li>
+            <li class="option"><input type="radio" name="q5" value="canberra"> Canberra</li>
+        </ul>
+
+        <button class="submit-btn" onclick="submitAnswers()">Submit</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+    function submitAnswers() {
+        var answers = [];
+        for (var i = 1; i <= 5; i++) {
+            var selectedOption = document.querySelector('input[name="q' + i + '"]:checked');
+            if (selectedOption) {
+                answers.push({ question: i, answer: selectedOption.value });
+            } else {
+                alert("Please answer question " + i);
+                return;
+            }
+        }
+
+        var resultParagraph = document.getElementById('result');
+        resultParagraph.innerHTML = 'Selected Answers:<br>';
+
+        for (var i = 0; i < answers.length; i++) {
+            resultParagraph.innerHTML += 'Question ' + answers[i].question + ': ' + answers[i].answer + '<br>';
+    }
+    }
+    </script>
+</body>
+</html>
