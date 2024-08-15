@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="dashboard">
+        <div class="widget" id="widget1">Widget 1</div>
+        <div class="widget" id="widget2">Widget 2</div>
+        <div class="widget" id="widget3">Widget 3</div>
+    </div>
+    
+    <ul id="contextMenu" class="hidden">
+        <li data-action="open">Open</li>
+        <li data-action="edit">Edit</li>
+        <li data-action="delete">Delete</li>
+        <li data-action="more">More
+            <ul class="submenu hidden">
+                <li data-action="details">Details</li>
+                <li data-action="export">Export</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+            // document.getElementById('dashboard').addEventListener('contextmenu', function (event) {
+            document.body.addEventListener('contextmenu', function (event) {
+                event.preventDefault(); // Prevent the default right-click menu
+
+                const contextMenu = document.getElementById('contextMenu');
+                const widget = event.target.closest('.widget');
+
+                if (widget) {
+                    // Show the context menu at the mouse position
+                    contextMenu.style.top = `${event.pageY}px`;
+                    contextMenu.style.left = `${event.pageX}px`;
+                    contextMenu.classList.remove('hidden');
+
+                    // Store the widget that was clicked for later use
+                    contextMenu.dataset.targetWidget = widget.id;
+                }
+            });
+
+            // Handle menu item clicks
+            document.getElementById('contextMenu').addEventListener('click', function (event) {
+                const action = event.target.dataset.action;
+                const targetWidgetId = this.dataset.targetWidget;
+
+                if (action) {
+                    handleMenuAction(action, targetWidgetId);
+                }
+
+                // Hide the context menu after an action is selected
+                this.classList.add('hidden');
+            });
+
+            // Show/hide submenus on hover
+            document.querySelectorAll('#contextMenu > li').forEach(item => {
+                item.addEventListener('mouseover', function (event) {
+                    const submenu = this.querySelector('.submenu');
+                    if (submenu) {
+                        submenu.classList.remove('hidden');
+                    }
+                });
+
+                item.addEventListener('mouseout', function (event) {
+                    const submenu = this.querySelector('.submenu');
+                    if (submenu) {
+                        submenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Hide the context menu if clicking outside
+            document.addEventListener('click', function (event) {
+                const contextMenu = document.getElementById('contextMenu');
+                if (!contextMenu.contains(event.target)) {
+                    contextMenu.classList.add('hidden');
+                }
+            });
+
+            // Function to handle menu actions
+            function handleMenuAction(action, widgetId) {
+                switch (action) {
+                    case 'open':
+                        console.log(`Opening widget ${widgetId}`);
+                        break;
+                    case 'edit':
+                        console.log(`Editing widget ${widgetId}`);
+                        break;
+                    case 'delete':
+                        console.log(`Deleting widget ${widgetId}`);
+                        break;
+                    case 'details':
+                        console.log(`Showing details for widget ${widgetId}`);
+                        break;
+                    case 'export':
+                        console.log(`Exporting data from widget ${widgetId}`);
+                        break;
+                    default:
+                        console.log(`Unknown action ${action} for widget ${widgetId}`);
+                }
+            }
+    </script>   
+</body>
+</html>

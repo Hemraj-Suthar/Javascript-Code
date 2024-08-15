@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        function fetchData(callback) {
+            setTimeout(function() {
+                const data = "Sample data";
+                callback(data);
+            }, 5000);
+        }
+
+        console.log("This is another console.log function");
+        
+
+        function showData(data) {
+            console.log(data);
+        }
+
+        fetchData(showData);
+    </script> -->
+
+    <script>
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const data = "Sample data";
+                    resolve(data); // Resolve the promise with the data
+                }, 5000);
+            });
+        }
+
+        function showData(data) {
+            console.log(data);
+        }
+
+        fetchData()
+            .then(showData)
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+
+        console.log("This is another console.log function");
+
+    </script>
+</body>
+
+</html>

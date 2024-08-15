@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Propagation</title>
+    <style>
+        div#outer {
+            width: 250px;
+            height: 250px;
+            background-color: green;
+            cursor: pointer;
+        }
+        div#inner {
+            width: 150px;
+            height: 150px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        Outer Div
+        <div id="inner">
+            Inner Div
+        </div>
+    </div>
+    <script>
+        const outerDiv = document.getElementById('outer');
+        const innerDiv = document.getElementById('inner');
+
+        outerDiv.addEventListener('click', () => {
+            console.log('Outer DIV clicked (Bubbling)');
+        });
+
+        outerDiv.addEventListener('click', () => {
+            console.log('Outer DIV clicked (Capturing)');
+        }, true);
+
+        innerDiv.addEventListener('click', (event) => {
+            console.log('Inner DIV clicked');
+            event.stopPropagation();
+        });
+
+    </script>
+</body>
+</html>

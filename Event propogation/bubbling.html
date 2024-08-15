@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #one {
+            width: 400px;
+            height: 400px;
+            background: green;
+            cursor: pointer;
+        }
+        #two {
+            width: 300px;
+            height: 300px;
+            background: blue;
+        }
+        #three {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        #four {
+            width: 100px;
+            height: 100px;
+            background: rgb(217, 227, 11);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="one">1
+        <div id="two">2
+            <div id="three">3
+                <div id="four">4</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Event Bubbling is default nature of Javascript
+
+        document.getElementById("one").addEventListener("click", () => {
+            console.log("1 is clicked");
+        });
+        document.getElementById("two").addEventListener("click", () => {
+            console.log("2 is clicked");
+        });
+        document.getElementById("three").addEventListener("click", () => {
+            console.log("3 is clicked");
+        });
+        document.getElementById("four").addEventListener("click", () => {
+            console.log("4 is clicked");
+        });
+    </script>
+</body>
+</html>

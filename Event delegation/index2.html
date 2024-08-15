@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="listContainer"></div>
+
+    <script>
+        const listContainer = document.getElementById('listContainer');
+
+        function createListItem(items) {
+            items.forEach(item => {
+                const li = document.createElement("li");
+                const anchor = document.createElement("a");
+                anchor.href = item.url;
+                anchor.textContent = item.text;
+                li.appendChild(anchor);
+                listContainer.appendChild(li);
+            });
+        }
+
+        // Sample data
+        const data = [
+            { text: 'Link 1', url: 'https://example.com/1' },
+            { text: 'Link 2', url: 'https://example.com/2' },
+            { text: 'Link 3', url: 'https://example.com/3' }
+        ];
+
+        createListItem(data);
+
+        listContainer.addEventListener("click", (e) => {
+            if (e.target.tagName === 'A') {
+                e.preventDefault();
+                console.log(`Clicked ${e.target.textContent}`);
+            }
+        })
+    </script>
+</body>
+
+</html>

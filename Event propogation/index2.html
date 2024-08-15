@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="userForm">
+        <div class="section" id="personalInfo">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+          <span class="error-message"></span>
+        </div>
+      
+        <div class="section" id="contactInfo">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email">
+          <span class="error-message"></span>
+        </div>
+      
+        <div class="actions">
+          <button type="button" id="saveBtn">Save Progress</button>
+          <button type="submit" id="submitBtn">Submit</button>
+        </div>
+      </form>
+      
+      <script>
+            document.getElementById('userForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission for custom validation
+
+                // Perform final validation
+                if (validateForm()) {
+                    console.log('Form submitted successfully!');
+                    // Here you would typically send the data to the server
+                }
+            });
+
+            document.querySelectorAll('.section input').forEach(input => {
+                input.addEventListener('input', function(event) {
+                    // Inline validation on each input field
+                    const isValid = validateField(event.target);
+                    showValidationMessage(event.target, isValid);
+                });
+            });
+
+            document.getElementById('saveBtn').addEventListener('click', function(event) {
+                event.preventDefault();
+                // Save form progress (e.g., to localStorage or a server)
+                console.log('Form progress saved!');
+            });
+
+            // Validation functions
+            function validateField(input) {
+                const value = input.value.trim();
+                if (input.type === 'email') {
+                    return value.includes('@'); // Simple email validation
+                } else {
+                    return value.length > 0; // Simple non-empty validation
+                }
+            }
+
+            function showValidationMessage(input, isValid) {
+                const errorMessageElement = input.nextElementSibling;
+                if (isValid) {
+                    errorMessageElement.textContent = ''; // Clear error message
+                } else {
+                    errorMessageElement.textContent = 'Invalid input'; // Show error message
+                }
+            }
+
+            function validateForm() {
+                let isValid = true;
+                document.querySelectorAll('.section input').forEach(input => {
+                    const fieldIsValid = validateField(input);
+                    showValidationMessage(input, fieldIsValid);
+                    if (!fieldIsValid) {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+            }
+      </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Top</title>
+    <style>
+        .scrollable-div {
+            width: 300px;
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #000;
+        }
+        .content {
+            height: 1000px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scrollable-div" id="scrollableDiv">
+        <div class="content">
+            <p>Content goes here...</p>
+            <p>More content...</p>
+            <p>Even more content...</p>
+            <p>Content goes here...</p>
+            <p>More content...</p>
+            <p>Even more content...</p>
+            <p>Content goes here...</p>
+            <p>More content...</p>
+            <p>Even more content...</p>
+            <p>Content goes here...</p>
+            <p>More content...</p>
+            <p>Even more content...</p>
+            <p>Content goes here...</p>
+            <p>More content...</p>
+            <p>Even more content...</p>
+            <p>Content goes here...</p>
+            <p>More content...</p>
+            <p>Even more content...</p>
+            <p>Content goes here...</p>
+            <p>More content...</p>
+            <p>Even more content...</p>
+            <button id="scrollButton">Scroll to Top</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('scrollButton').addEventListener('click', function() {
+            document.getElementById('scrollableDiv').scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
+
+<script>
+    $(document).on("click", ".child-product.ct_Pre_drape", function () {
+        let buyBtn = $(".ct-buy-btn button");
+        if (buyBtn) {
+            buyBtn.attr('disabled', 'disabled').css('opacity', '0.6');
+        } else {
+            buyBtn.removeAttr('disabled').css('opacity', '1');
+        }
+    });
+</script>
+
+    
